@@ -23,15 +23,23 @@
             return valores;
         }
 
+        static void ImprimirResposta(int[] valores, int produto, int[] divisiveis)
+        {
+            Console.WriteLine($"Valores ordenados: {string.Join(", ", valores)}");
+            Console.WriteLine($"Produto dos ímpares: {produto}");
+            Console.WriteLine($"Divisíveis pelo menor ({valores[0]}): {string.Join(", ", divisiveis)}");
+        }
+
         static void Main(string[] args)
         {
-            int produto;
-            int[] divisiveis;
-            int[] valores = LerValores(); //mudança para demonstração
-            Array.Sort(valores);
-            produto = CalcularProdutoDosImpares(valores);
-            divisiveis = EncontrarDivisiveisPeloMenor(valores);
-            ImprimirResposta(valores, produto, divisiveis);
+            int[] valoresEntrada = LerValores();
+            Calculadora calculadora = new Calculadora(valoresEntrada);
+
+            int produto = calculadora.CalcularProdutoDosImpares();
+            int[] divisiveis = calculadora.EncontrarDivisiveisPeloMenor();
+            ImprimirResposta(calculadora.Valores, produto, divisiveis);
+
+
         }
     }
 }
