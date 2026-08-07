@@ -25,8 +25,13 @@
 
         static void Main(string[] args)
         {
-            int[] valores = LerValores();
-
+            int produto;
+            int[] divisiveis;
+            int[] valores = LerValores(); //mudança para demonstração
+            Array.Sort(valores);
+            produto = CalcularProdutoDosImpares(valores);
+            divisiveis = EncontrarDivisiveisPeloMenor(valores);
+            ImprimirResposta(valores, produto, divisiveis);
         }
     }
 }
